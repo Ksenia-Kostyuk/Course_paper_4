@@ -23,14 +23,18 @@ class WorkVacancy(AbctrWorkVacancy):
     def add_vacancy(self):
         pass
 
-    def sorted_vacancy(self, list_class: list[object, ...], param: list):
-        """Сортирует список объектов по полученным словам"""
+    def sorted_vacancy(self, list_class: list, param: list):
+        """
+        Сортирует список объектов по параметрами полученным от пользователя
+        :param list_class: (list) список объектов c hh.ru
+        :param param: (list) список параметров
+        :return:
+        """
         vacancy_list = []
         for i in list_class:
-            if param in list_class:
-                vacancy_list.append((i))
-                return vacancy_list
-
+            if lambda: param in list_class:
+                vacancy_list.append(i)
+        return vacancy_list
 
     def out_data_vacancy(self, value):
         pass

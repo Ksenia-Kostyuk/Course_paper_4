@@ -6,7 +6,7 @@ from src.WorkVacancyFile import WorkVacancy
 def hello_user() -> None:
     print('Здравствуйте, добро пожаловать на hh.ru!')
     search_query = input("Введите поисковый запрос: ")
-    #top_n = int(input("Введите количество вакансий для вывода в топ N: "))
+    top_n = int(input("Введите количество вакансий для вывода в топ N: "))
     filter_words = input("Введите ключевые слова для фильтрации вакансий: ").split()
     #salary_range = input("Введите диапазон зарплат: ")
 
@@ -16,6 +16,9 @@ def hello_user() -> None:
 
     filter_vacancy = hh_vacancy.sorted_vacancy(sort_vac, filter_words)
     hh_vacancy.add_vacancy(filter_vacancy)
+
+
+
 
 
 if __name__ == '__main__':

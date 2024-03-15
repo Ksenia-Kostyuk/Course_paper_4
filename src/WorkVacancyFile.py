@@ -48,13 +48,22 @@ class WorkVacancy(AbctrWorkVacancy):
         with open("hh_vacancy.json", "w", encoding='utf-8') as file:
             file.truncate()
 
+    def __len__(self, list_class, other):
+        """
+        Возвращает топ вакансий, выбранных пользователем
+        :param list_class: список вакансий
+        :param other: число вакансий
+        :return: list_class (list) срез листа вакансий
+        """
+        return list_class[:other]
+
     @staticmethod
     def sorted_vacancy(list_class: list, param: list):
         """
         Сортирует список объектов по параметрами полученным от пользователя
         :param list_class: (list) список объектов c hh.ru
         :param param: (list) список параметров
-        :return:
+        :return: vacancy_list (list) список отсортированных профессий
         """
         vacancy_list = []
         for i in list_class:

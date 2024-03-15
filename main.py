@@ -1,6 +1,7 @@
 from src.get_data.GetData import GetData
 from src.WorkVacancyFile import WorkVacancy
-from src.Vacancy import Vacancy
+#from src.Vacancy import Vacancy
+
 
 def hello_user() -> None:
     print('Здравствуйте, добро пожаловать на hh.ru!')
@@ -13,7 +14,8 @@ def hello_user() -> None:
     sort_vac = hh_api.getting_vacations(search_query)
     hh_vacancy = WorkVacancy()
 
-    print(hh_vacancy.sorted_vacancy(sort_vac, filter_words))
+    filter_vacancy = hh_vacancy.sorted_vacancy(sort_vac, filter_words)
+    hh_vacancy.add_vacancy(filter_vacancy)
 
 
 if __name__ == '__main__':

@@ -24,7 +24,7 @@ class Vacancy:
         """
         return f'''{self.name} - город: {self.city}.
         Заработная плата: {self.salary_min} - {self.salary_max} {self.currency}.
-        Требования: {self.requirements}
+        Требования: {self.requirements}.
         Сссфлка: {self.url}'''
 
     def __eq__(self, other: object) -> bool:
@@ -35,7 +35,7 @@ class Vacancy:
         :param other: (object) объект класса с которым сравнивать
         :return: (bool) True | False
         """
-        return self.salary_min == other.salary_min
+        return self.salary_min == other
 
     def __lt__(self, other):
         """
@@ -56,17 +56,6 @@ class Vacancy:
         :return: (bool) True | False
         """
         return self.salary_min > other.salary_min
-
-    def salary_sum(self, list_vacancy, salary_range):
-        new_list_vacancy = []
-        for i in list_vacancy:
-            if lambda: salary_range in list_vacancy:
-                new_list_vacancy.append(i)
-            elif i['salary'] == None:
-                continue
-            else:
-                new_list_vacancy.append(i)
-
 
     @classmethod
     def new_obj_cls(cls, vacancies: list[dict, ...]):

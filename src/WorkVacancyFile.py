@@ -70,19 +70,23 @@ class WorkVacancy(AbctrWorkVacancy):
         for i in list_class:
             if lambda: param in list_class:
                 vacancy_list.append(i)
+            else:
+                continue
         return vacancy_list
 
-    def salary_sum(self, list_vacancy: list):
+    def salary_sum(self, list_vacancy, salary_range):
         """
-        Сортирует вакансии по зарплате, если зарплата не указана в объявлении
-        то вакансия не добавляется в список рекоментуедмых
-        :param list_vacancy: (list) список вакансий
-        :return: new_list_vacancy (list) вакансии отсортированные по зарплате
+        Сортирует список вакансий по указанной пользователем заработной плате,
+        если пользователь не указал заработную плату, то вакансия с зарплатой с типом данных None не добавляется в список рекоментуедмых
+        :param list_vacancy: (list) список вакансий с hh.ru
+        :param salary_range: (list) диапазон зарплат
+        :return: new_list_vacancy (list) отсортированный список вакансий
         """
         new_list_vacancy = []
         for i in list_vacancy:
-            if i['salary'] == None:
+            if lambda: salary_range in list_vacancy:
+                new_list_vacancy.append(i)
+            elif i['salary'] == None:
                 continue
             else:
                 new_list_vacancy.append(i)
-        return new_list_vacancy
